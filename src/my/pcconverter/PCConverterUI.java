@@ -4,6 +4,8 @@
  */
 package my.pcconverter;
 
+import java.awt.Color;
+
 /**
  *
  * @author christiancelary
@@ -26,21 +28,50 @@ public class PCConverterUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Panicbutton = new javax.swing.JButton();
+        LabelPath = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Panicbutton.setText("PANIC");
+        Panicbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PanicbuttonActionPerformed(evt);
+            }
+        });
+
+        LabelPath.setText("Path");
+        LabelPath.setToolTipText("");
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 400, Short.MAX_VALUE)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                    .add(LabelPath, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(Panicbutton, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE))
+                .add(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 300, Short.MAX_VALUE)
+            .add(layout.createSequentialGroup()
+                .add(24, 24, 24)
+                .add(Panicbutton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 218, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(LabelPath)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    Boolean trigger = true;
+    private void PanicbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PanicbuttonActionPerformed
+        java.awt.Color color = trigger ? Color.red : Color.green;
+        Panicbutton.setBackground(color);
+        trigger = !trigger;
+    }//GEN-LAST:event_PanicbuttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,5 +108,7 @@ public class PCConverterUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabelPath;
+    private javax.swing.JButton Panicbutton;
     // End of variables declaration//GEN-END:variables
 }
